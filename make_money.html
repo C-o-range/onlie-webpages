@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>股票投资小白成长路线规划</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #2c3e50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.95rem;
+      padding: 5px 10px;
+      border-radius: 15px;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    main {
+      padding: 30px 20px;
+    }
+
+    .goal {
+      background: #e8f4fd;
+      padding: 20px;
+      border-left: 4px solid #3498db;
+      margin-bottom: 30px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .goal h2 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+
+    .stage {
+      margin-bottom: 40px;
+      background: white;
+      border: 1px solid #e1e8ed;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .stage-header {
+      background: #34495e;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .stage-number {
+      background: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .stage-content {
+      padding: 20px;
+    }
+
+    .stage-content h3 {
+      color: #2c3e50;
+      margin: 15px 0 8px 0;
+      font-size: 1.1rem;
+    }
+
+    .stage-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .stage-content li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .stage-content p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .highlight {
+      background: #fffde7;
+      padding: 15px;
+      border-left: 4px solid #ffc107;
+      margin: 15px 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .resources {
+      background: #f0f8f0;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .resources h4 {
+      color: #27ae60;
+      margin-bottom: 8px;
+    }
+
+    .resources p {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+    }
+
+    .task {
+      background: #ffeaa7;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #fdcb6e;
+      margin-top: 15px;
+    }
+
+    .task h4 {
+      color: #d63031;
+      margin-bottom: 8px;
+    }
+
+    .month-plan {
+      background: #ddd6fe;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+
+    .month-plan h3 {
+      color: #5b21b6;
+      margin-bottom: 12px;
+    }
+
+    .month-plan table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .month-plan th,
+    .month-plan td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #bbb;
+    }
+
+    .month-plan th {
+      background: #9333ea;
+      color: white;
+    }
+
+    .month-plan th,
+    .month-plan td {
+      padding: 8px 5px;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav {
+        padding: 10px 10px;
+      }
+
+      nav a {
+        margin: 2px;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      main {
+        padding: 20px 15px;
+      }
+
+      .stage-header {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+      }
+
+      .stage-content {
+        padding: 15px;
+      }
+
+      .month-plan table {
+        font-size: 0.85rem;
+      }
+
+      .month-plan th,
+      .month-plan td {
+        padding: 8px 5px;
+      }
+    }
+
+    /* ===== 记事本样式 ===== */
+    .notepad-container {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 320px;
+      z-index: 1000;
+      font-size: 14px;
+    }
+
+    .notepad-toggle {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .notepad-toggle:hover {
+      background: #0056b3;
+    }
+
+    .notepad-box {
+      display: none;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .notepad-box.active {
+      display: block;
+    }
+
+    .notepad-header {
+      background: #f8f9fa;
+      padding: 12px 15px;
+      border-bottom: 1px solid #dee2e6;
+      font-weight: bold;
+      color: #495057;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notepad-close {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #6c757d;
+    }
+
+    .notepad-textarea {
+      width: 100%;
+      height: 300px;
+      border: none;
+      padding: 15px;
+      font-size: 14px;
+      font-family: inherit;
+      resize: none;
+      outline: none;
+      background: #fafafa;
+    }
+
+    .notepad-textarea:focus {
+      background: white;
+    }
+
+    .notepad-actions {
+      padding: 10px 15px;
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+      display: flex;
+      gap: 10px;
+    }
+
+    .notepad-btn {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .notepad-btn.clear {
+      color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .notepad-btn.clear:hover {
+      background: #dc3545;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .notepad-container {
+        right: 10px;
+        bottom: 10px;
+        width: calc(100vw - 20px);
+        max-width: 300px;
+      }
+
+      .notepad-textarea {
+        height: 250px;
+      }
+
+      nav a {
+        display: block;
+        margin: 2px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📈 股票投资小白成长路线</h1>
+    <p>从零开始，6~12个月成长为一名理性、入局的投资者</p>
+  </header>
+
+  <nav>
+    <a href="#goal">🎯 总体目标</a>
+    <a href="#stage1">1️⃣ 阶段一</a>
+    <a href="#stage2">2️⃣ 阶段二</a>
+    <a href="#stage3">3️⃣ 阶段三</a>
+    <a href="#stage4">4️⃣ 阶段四</a>
+    <a href="#stage5">5️⃣ 阶段五</a>
+    <a href="#stage6">6️⃣ 阶段六</a>
+    <a href="#monthly">📅 月度计划</a>
+  </nav>
+
+  <main>
+
+    <div class="goal" id="goal">
+      <h2>🎯 总体目标</h2>
+      <p><strong>时间：</strong>6个月 ~ 1年</p>
+      <p><strong>目标：</strong>掌握股票投资核心知识，建立个人投资逻辑，能独立分析公司，形成策略，开始实盘，培养正确心态，最终成为一个可以“入局”的理性投资者。</p>
+    </div>
+
+    <div class="stage" id="stage1">
+      <div class="stage-header">
+        <span class="stage-number">1</span>阶段一：投资入门 & 基础扫盲
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>理解股票、股市基本规则，区分投资与投机，建立基础认知。</p>
+
+        <h3>🔸 学习内容：</h3>
+        <ul>
+          <li>什么是股票？股市如何运作？</li>
+          <li>投资 vs 投机，为什么大多数人亏钱</li>
+          <li>基础术语：PE、PB、市值、K线等</li>
+        </ul>
+
+        <div class="resources">
+          <h4>📚 推荐资源：</h4>
+          <p>• 书籍：《小狗钱钱》《穷爸爸富爸爸》</p>
+          <p>• 视频：B站/YouTube“股票入门”</p>
+          <p>• 平台：雪球、东方财富</p>
+        </div>
+
+        <div class="task">
+          <h4>✅ 实践任务：</h4>
+          <p>• 开通证券账户（推荐东财、华泰等）</p>
+          <p>• 熟悉交易流程，不要急着投钱</p>
+          <p>• 用模拟盘或极小资金试水</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage2">
+      <div class="stage-header">
+        <span class="stage-number">2</span>阶段二：投资理念与思维建设
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>建立正确的投资价值观，明确自己的投资路线（如价值投资）。</p>
+
+        <h3>🔸 学习内容：</h3>
+        <ul>
+          <li>投资的目的：复利、长期财富增长</li>
+          <li>主流投资流派：价值、成长、趋势、定投</li>
+          <li>认识自己的投资性格与目标</li>
+        </ul>
+
+        <div class="resources">
+          <h4>📚 推荐资源：</h4>
+          <p>• 书籍：《聪明的投资者》</p>
+          <p>• 视频：雪球、B站投资理念分享</p>
+        </div>
+
+        <div class="task">
+          <h4>✅ 实践任务：</h4>
+          <p>• 明确自己要走“价值投资”路线</p>
+          <p>• 写下你的投资目标与原则</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage3">
+      <div class="stage-header">
+        <span class="stage-number">3</span>阶段三：财务基础 & 读懂公司
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>学会看懂财务报表，分析公司基本面，为选股打基础。</p>
+
+        <h3>🔸 学习内容：</h3>
+        <ul>
+          <li>三大财务报表：利润表、资产负债表、现金流量表</li>
+          <li>关键指标：ROE、毛利率、负债率</li>
+          <li>分析公司业务、竞争优势、管理层</li>
+        </ul>
+
+        <div class="resources">
+          <h4>📚 推荐资源：</h4>
+          <p>• 书籍：《手把手教你读财报》</p>
+          <p>• 工具：理杏仁、同花顺、东方财富</p>
+        </div>
+
+        <div class="task">
+          <h4>✅ 实践任务：</h4>
+          <p>• 选1-3家你熟悉的公司，尝试读财报</p>
+          <p>• 建立“观察股池”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage4">
+      <div class="stage-header">
+        <span class="stage-number">4</span>阶段四：技术分析与市场认知
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>了解技术面基础，认识市场情绪，学会看盘与分析趋势。</p>
+
+        <h3>🔸 学习内容：</h3>
+        <ul>
+          <li>K线、均线、成交量、技术指标（MACD等）</li>
+          <li>市场情绪与主力行为</li>
+          <li>新闻与政策对市场的影响</li>
+        </ul>
+
+        <div class="resources">
+          <h4>📚 推荐资源：</h4>
+          <p>• 书籍：《日本蜡烛图技术》</p>
+          <p>• 工具：同花顺、东方财富看盘软件</p>
+        </div>
+
+        <div class="task">
+          <h4>✅ 实践任务：</h4>
+          <p>• 每天看盘15-30分钟，观察走势</p>
+          <p>• 学会用技术工具辅助判断</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage5">
+      <div class="stage-header">
+        <span class="stage-number">5</span>阶段五：构建策略 & 小资金实战
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>形成个人投资策略，用小资金实盘操作，边做边学。</p>
+
+        <h3>🔸 学习内容：</h3>
+        <ul>
+          <li>制定投资计划与目标</li>
+          <li>买入/卖出策略、仓位管理</li>
+          <li>风险管理与止损原则</li>
+        </ul>
+
+        <div class="task">
+          <h4>✅ 实践任务：</h4>
+          <p>• 用小资金（如1万元内）开始实盘</p>
+          <p>• 记录买入理由、跟踪表现、总结经验</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage6">
+      <div class="stage-header">
+        <span class="stage-number">6</span>阶段六：持续学习与优化
+      </div>
+      <div class="stage-content">
+        <h3>🔹 目标：</h3>
+        <p>投资是长期修行，不断学习、复盘、优化策略与认知。</p>
+
+        <div class="highlight">
+          <strong>💡 核心忠告：</strong>
+          <ul>
+            <li>不要急于赚快钱，慢就是快</li>
+            <li>控制风险永远第一，不要加杠杆</li>
+            <li>保持独立思考，持续学习与复盘</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>✅ 长期任务：</h4>
+          <p>• 深入研究行业，关注龙头与趋势</p>
+          <p>• 每周/月复盘你的交易与决策</p>
+          <p>• 持续优化你的投资体系</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-plan" id="monthly">
+      <h3>📅 推荐学习与实践节奏（6个月）</h3>
+      <table>
+        <tr>
+          <th>时间</th>
+          <th>重点任务</th>
+        </tr>
+        <tr>
+          <td>第1个月</td>
+          <td>入门扫盲、开户、模拟交易、了解基础术语</td>
+        </tr>
+        <tr>
+          <td>第2个月</td>
+          <td>建立投资理念、明确价值投资路线、认识自己</td>
+        </tr>
+        <tr>
+          <td>第3个月</td>
+          <td>读懂财报、分析公司基本面、建立观察池</td>
+        </tr>
+        <tr>
+          <td>第4个月</td>
+          <td>学习技术分析、看盘、了解市场情绪</td>
+        </tr>
+        <tr>
+          <td>第5-6个月</td>
+          <td>构建策略、小资金实盘、总结与优化</td>
+        </tr>
+      </table>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>📚 持续学习 · 理性投资 · 长期复利</p>
+    <p style="margin-top: 5px; font-size: 0.85rem;">本文档可离线使用，欢迎保存与分享</p>
+  </footer>
+</div>
+
+<!-- ========== 记事本功能模块 ========== -->
+<div class="notepad-container">
+  <button class="notepad-toggle" onclick="toggleNotepad()">📝 我的投资笔记</button>
+  <div class="notepad-box" id="notepadBox">
+    <div class="notepad-header">
+      <span>📝 投资笔记</span>
+      <button class="notepad-close" onclick="toggleNotepad()">✕</button>
+    </div>
+    <textarea 
+      class="notepad-textarea" 
+      id="notepadText" 
+      placeholder="在这里记录你的投资心得、每日总结、学习笔记、选股想法等...
+内容会自动保存到浏览器本地，下次打开依然存在。"></textarea>
+    <div class="notepad-actions">
+      <button class="notepad-btn clear" onclick="clearNotepad()">🗑️ 清空</button>
+      <button class="notepad-btn" onclick="saveNotepad()">💾 保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 获取DOM元素
+  const notepadBox = document.getElementById('notepadBox');
+  const notepadText = document.getElementById('notepadText');
+  const notepadToggle = document.querySelector('.notepad-toggle');
+
+  // 页面加载时自动加载已保存的笔记
+  function loadNotepad() {
+    const saved = localStorage.getItem('myInvestmentNotes');
+    if (saved) {
+      notepadText.value = saved;
+    }
+  }
+
+  // 手动或自动保存笔记到本地存储
+  function saveNotepad() {
+    localStorage.setItem('myInvestmentNotes', notepadText.value);
+    alert('✅ 笔记已保存！');
+  }
+
+  // 清空笔记内容
+  function clearNotepad() {
+    if (confirm('确定要清空所有笔记内容吗？此操作不可恢复。')) {
+      notepadText.value = '';
+      localStorage.removeItem('myInvestmentNotes');
+      alert('🗑️ 笔记已清空！');
+    }
+  }
+
+  // 切换记事本显示/隐藏
+  function toggleNotepad() {
+    notepadBox.classList.toggle('active');
+  }
+
+  // 监听输入，延迟自动保存（也可以直接用 input 事件 + debounce）
+  notepadText.addEventListener('input', () => {
+    // 防抖：2秒后自动保存一次
+    clearTimeout(window.notepadTimer);
+    window.notepadTimer = setTimeout(saveNotepad, 2000);
+  });
+
+  // 失焦时也保存一次
+  notepadText.addEventListener('blur', saveNotepad);
+
+  // 页面初始化时加载
+  window.onload = loadNotepad;
+</script>
+</body>
+</html>
